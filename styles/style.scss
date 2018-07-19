@@ -1,0 +1,276 @@
+
+$colorBody: #ebebeb;
+$colorBlack: #333333;
+$whiteColorFonts: #ffffff;
+$colorIntroText: #595959;
+$colorDecorator: #ec1c24;
+$colorFaq: #eeeeee;
+$bgActive: #f6f6f6;
+
+ 
+body {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    background-color: $colorBody;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.strong {
+    font-weight: 300;
+}
+
+.row {
+    margin-right: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.position-absolute {
+    font-family: "Font Awesome 5 Free";
+    content: "\f56d";
+    position: absolute;
+    top: 30%;
+    right: 9%;
+    text-align: center;
+    font-weight: 900;
+}
+
+.faq-page {
+    background-color: $whiteColorFonts;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.docs {
+    max-width: 100%;
+    min-height: 772px;
+    margin-top: 100px;
+    background-color: $colorBlack;
+    color: $whiteColorFonts;
+    border-top-left-radius: 25px;
+    position: relative;
+}
+
+.docs__container {
+    max-width: 400px;
+    padding: 25px;
+}
+
+.docs__intro {
+    position: absolute;
+    top: -10%;
+    left: -44%;
+    color: $colorBlack;
+    font-size: 15px;
+    color: $colorIntroText;
+    max-width: 610px;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+.docs__container__title {
+    font-size: 41px;
+    line-height: 54px;
+    font-weight: 100;
+}
+
+.file {
+    position: relative;
+    display: block;
+    font-size: 18px;
+    padding: 15px 0;
+    color: $whiteColorFonts;
+    border-bottom: 1px solid #393838;
+    ;
+    &::after {
+        @extend .position-absolute;
+        top: 15px;
+        right: 0;
+    }
+    &:hover {
+        color: $colorBody;
+        &::after {
+            color: $colorDecorator;
+        }
+    }
+}
+
+// ACCORDION
+.accordion {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 100px;
+    * {
+        border: none;
+        outline-style: none;
+        box-shadow: none;
+    }
+}
+  
+.faq-title {
+    font-size: 169px;
+    color: $colorFaq;
+    font-weight: 900;
+    position: relative;
+    padding-top: 12px;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        top: -52%;
+        background-color: $colorDecorator;
+    }
+}
+
+.faq-title__span {
+    position: absolute;
+    bottom: 0;
+    left: 1.6em;
+    font-size: 54px;
+    color: $colorBlack;
+    font-weight: 300;
+}
+
+.panel-group .panel+.panel {
+    margin-top: 0px;
+    border: none;
+}
+
+.panel-title,
+.panel-body__text,
+.faq-title {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.panel-group {
+    margin-top: 20px;
+}
+
+.panel-default {
+    color: $colorBlack;
+    .panel-heading {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: $whiteColorFonts;
+        padding: 17px 6px;
+        position: relative;
+        .panel-link {
+            color: $colorBlack;
+            display: inline-block;
+            width: 100%;
+            font-weight: 100;
+            .counter {
+                font-size: 20px;
+                padding-right: 20px;
+                margin-right: 20px;
+                border-right: 1px solid $colorBlack;
+            }
+            &:after {
+                @extend .position-absolute;
+                content: "\f107";
+                border-radius: 100%;
+                width: 24px;
+                height: 24px;
+                line-height: 20px;
+                color: $colorDecorator;
+                border: 2px solid $colorDecorator;
+            }
+        }
+        &.active {
+            background-color: $bgActive !important;
+            .panel-link {
+                font-weight: 300;
+                .counter {
+                    color: $colorDecorator;
+                }
+                &:after {
+                    position: absolute;
+                    content: "\f106";
+                    color: $colorBlack;
+                    border: 2px solid $colorBlack;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    .panel-body {
+        background-color: $bgActive !important;
+        border-top: 1px solid transparent !important;
+    }
+    .panel-body__text {
+        max-width: 544px;
+        font-weight: 100;
+        font-size: 16px;
+    }
+}
+
+.footer {
+    width: 100%;
+    min-height: 30vh;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 10px;
+    }
+    .panel-title {
+        max-width: 200px;
+    }
+    .counter {
+        margin-right: 150px !important;
+    }
+    .docs {
+        min-height: auto;
+    }
+    .docs__intro {
+        max-width: 330px;
+        top: -18%;
+        left: 15%;
+        padding-right: 15px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+    .docs__intro {
+        left: 15%;
+    }
+}
+
+@media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
+    .panel-default {
+        .panel-heading {
+            &:hover {
+                transition: all 0.3s ease;
+                background-color: $colorDecorator;
+                .panel-link {
+                    &::after {
+                        color: $colorBlack;
+                        border-color: $colorBlack;
+                    }
+                }
+            }
+        }
+    }
+}
